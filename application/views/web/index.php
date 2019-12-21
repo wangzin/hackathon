@@ -38,8 +38,8 @@
 			</div>
 			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 w3layouts_register_left">
 				<p>Login</p>
-				<input name="Name" placeholder="User Name" type="text" ><br /><br />
-				<input name="Name" placeholder="Password" type="password" ><br /><br />
+				<input name="Name" placeholder="User Name" type="text" class="form-control"><br />
+				<input name="Name" placeholder="Password" type="password" class="form-control"><br />
 				<button type="button" class="btn btn-info"> Login </button>
 				
 			</div>
