@@ -69,14 +69,14 @@ DROP TABLE IF EXISTS `role_tbl`;
 CREATE TABLE `role_tbl` (
   `Id` int(5) NOT NULL auto_increment,
   `Role_Name` varchar(200) default NULL,
-  `Stautus` char(1) default 'Y',
+  `Status` char(1) default 'Y',
   PRIMARY KEY  (`Id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 /*Data for the table `role_tbl` */
 
-insert  into `role_tbl`(`Id`,`Role_Name`,`Stautus`) values (1,'Admin','Y');
-insert  into `role_tbl`(`Id`,`Role_Name`,`Stautus`) values (2,'Approver','Y');
+insert  into `role_tbl`(`Id`,`Role_Name`,`Status`) values (1,'Admin','Y');
+insert  into `role_tbl`(`Id`,`Role_Name`,`Status`) values (2,'Approver','Y');
 
 /*Table structure for table `staff_tbl` */
 
@@ -94,12 +94,12 @@ CREATE TABLE `staff_tbl` (
   `Action_Date` date default NULL,
   `Role_Id` int(5) default NULL,
   PRIMARY KEY  (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 /*Data for the table `staff_tbl` */
 
-insert  into `staff_tbl`(`Id`,`Full_Name`,`Email_Id`,`Contact_No`,`Password`,`Company_Id`,`Department_Id`,`Designation_Id`,`Action_Date`,`Role_Id`) values (1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2019-12-21',NULL);
-insert  into `staff_tbl`(`Id`,`Full_Name`,`Email_Id`,`Contact_No`,`Password`,`Company_Id`,`Department_Id`,`Designation_Id`,`Action_Date`,`Role_Id`) values (2,'Younten Tshering','yountentshering@gmail.com',12345678,NULL,1,0,1,'2019-12-21',1);
+insert  into `staff_tbl`(`Id`,`Full_Name`,`Email_Id`,`Contact_No`,`Password`,`Company_Id`,`Department_Id`,`Designation_Id`,`Action_Date`,`Role_Id`) values (2,'Younten Tshering','yountentshering@gmail.com',12345678,'123',1,0,1,'2019-12-21',1);
+insert  into `staff_tbl`(`Id`,`Full_Name`,`Email_Id`,`Contact_No`,`Password`,`Company_Id`,`Department_Id`,`Designation_Id`,`Action_Date`,`Role_Id`) values (3,'Tshewang Tenzin','wangzin53@gmail.com',12312312,'321',1,1,2,'2019-12-21',2);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
