@@ -9,7 +9,7 @@
 <script src="<?php echo base_url();?>assest/jquery.form.js"></script>
 <script src="<?php echo base_url();?>assest/jquery-blockUI.js"></script>
 <script type="text/javascript">
-    function loadpage(url){
+    function loadpage(pagetype){
     $.blockUI
         ({ 
           css: 
@@ -23,7 +23,7 @@
               color: '#fff' 
           } 
         });
-      $("#mainpublicContent").load(url);
+      $("#mainpublicContent").load('<?php echo base_url();?>index.php?baseController/loadpage/'+pagetype);
       setTimeout($.unblockUI, 1000); 
     }
 	function sendMessage(formId){
