@@ -15,17 +15,6 @@
 					<span class="text-center"><h2> Get Registered</h2></span>
 					<div class="row">
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-<<<<<<< HEAD
-							<input name="Name" placeholder="Full Name" class="pager form-control" type="text" required="" onfocus="this.placeholder = ''"
-							onblur="this.placeholder = 'Full Name'">
-							<input name="email" placeholder="Email Id" class="pager form-control" type="text" required="" onfocus="this.placeholder = ''"
-							onblur="this.placeholder = 'Email'">
-							<input name="contact" placeholder="Mobile Phone No" class="pager form-control" type="number" onfocus="this.placeholder = ''"
-							onblur="this.placeholder = 'Phone No'">
-							<input name="text" placeholder="Password" class="pager form-control" type="text" onfocus="this.placeholder = ''"
-							onblur="this.placeholder = 'Password'">
-=======
-							
 							<input name="Name" id="Name" placeholder="Full Name" onclick="removeerr('name_err')" class="pager form-control" type="text">
 							<span id="name_err" class="text-justify"></span>
 							
@@ -37,7 +26,6 @@
 							
 							<input name="text" placeholder="Password" id="Password" onclick="removeerr('Password_err')" class="pager form-control" type="text">
 							<span id="Password_err" class="text-justify"></span>
->>>>>>> 50ea0163bf3cf7f3ae7f46937476110054832ba5
 						</div>
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 							<span id="Company_Name_err" class="text-justify"></span>
@@ -83,14 +71,6 @@
 			</div>
 			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 w3layouts_register_left page-header">
 				<p>Login</p>
-<<<<<<< HEAD
-				<input name="Name" placeholder="User Name" type="text" class="form-control" onfocus="this.placeholder = ''"
-					onblur="this.placeholder = 'User Name'"><br />
-				<input name="Name" placeholder="Password" type="password" class="form-control"onfocus="this.placeholder = ''"
-					onblur="this.placeholder = 'password'"><br />
-				<button type="button" class="btn btn-info"> Login </button>
-				
-=======
 				<?php echo form_open('#' , array('class' => 'form-horizontal validatable', 'enctype' => 'multipart/form-data','id'=>'loginform'));?>
 				<span id="EmailId_err" class="text-danger"></span>
 				<input name="EmailId" id="EmailId" onclick="removeerr('EmailId_err')" placeholder="Email Id" type="text" class="form-control"><br />
@@ -98,7 +78,6 @@
 				<input name="password" id="password" onclick="removeerr('password_err')" placeholder="Password" type="password" class="form-control"><br>
 				<button type="button" onclick="user_login()" class="btn btn-info"> Login </button>
 				</form>
->>>>>>> 50ea0163bf3cf7f3ae7f46937476110054832ba5
 			</div>
 			<div class="clearfix"> </div>
 		</div>

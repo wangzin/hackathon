@@ -1,22 +1,15 @@
-<?php header('Access-Control-Allow-Origin: *'); ?>
-<?php
-    $this->load->view('web/header.php');
-?> 
+
+ 
 <body>
-    <?php
-        $this->load->view('web/nevagation.php');
-    ?> 
-    <div id="mainpublicContent">
-     	
-    	<main class="container">
+  <main class="container">
     <div class="row">
 
         <!-- Main content -->
-        <div class="col-md-8">
-            <h4 style="text-align:center">Contact Us</h4>
+        <div class="col-md-4">
+            <h2 style="text-align:center">Contact Us</h2>
 
          
-            <article><form action="email.php" method="post" role="form">
+            <form action="Contact" method="post" role="form">
                <fieldset>
                             <legend>24/7 support - Connect with Us will give you best solutions.</legend>
                             <div class="form-group">
@@ -36,15 +29,12 @@
                             </div>
                    
                             <button type="submit" class="btn btn-primary" name="submit" value="send"> Submit</button>
+
                         </fieldset>
                 </form>
-            </article>
-
+                <br>
+           
         </div>
     </div>
-	<?php
-	    $this->load->view('web/footer.php');
-	?>
-	
 </body>
- 
+

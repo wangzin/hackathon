@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-<title>Bhutan Notesheet System</title>
+<title>Organozation Approval System</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Driving School Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -18,5 +18,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="<?php echo base_url();?>/assest/website/css/font-awesome.css" rel="stylesheet"> 
 <link rel="stylesheet" href="<?php echo base_url();?>/assest/website/css/flexslider.css" type="text/css" media="screen" property="" />
 <!-- //font-awesome-icons -->
-<link href="//fonts.googleapis.com/css?family=Prompt:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=latin-ext,thai,vietnamese" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Prompt:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=latin-ext,thai,vietnamese" rel="stylesheet">   
+<link rel="stylesheet" href="<?php echo base_url();?>asset/ckeditor/contents.css" />
+<script src="<?php echo base_url();?>/assest/ckeditor.js"></script>
+    
 </head>	

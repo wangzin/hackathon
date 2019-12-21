@@ -2,7 +2,7 @@
     <div class="header_left">
         <ul>
             <li><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>Thimphu</li>
-            <li><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>+17703452</li>
+            <li><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>+975-17703452</li>
         </ul>
     </div>
     <div class="clearfix"></div>
@@ -18,7 +18,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <h1><a class="navbar-brand" href="<?php echo base_url();?>"><span>Bhutan </span>Note-Sheet</a></h1>
+            <h1><a class="navbar-brand" href="<?php echo base_url();?>"><span>Organization </span>Approvel System</a></h1>
         </div>
         <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
             <nav class="link-effect-2" id="link-effect-2">

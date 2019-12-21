@@ -8,12 +8,10 @@ class BaseController extends CI_Controller {
         $page_data['designationList'] = $this->db->get_where('designation_tbl',array('Status'=>'Y'))->result_array();
 		$this->load->view('web/index',$page_data);
 	}
-<<<<<<< HEAD
 	function loadpage($param1="",$param2=""){
 
 		$this->load->view('web/about');
 	}
-=======
     function registerDetails(){
         //data validation required
         $data['Full_Name']=$this->input->post('Name');
@@ -34,5 +32,4 @@ class BaseController extends CI_Controller {
         $this->load->view('web/acknowledgement', $page_data); 
 
     }
->>>>>>> 50ea0163bf3cf7f3ae7f46937476110054832ba5
 }
