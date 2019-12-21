@@ -1,29 +1,10 @@
-<footer class="footer-area section-padding-80-0">
-    <div class="main-footer-area">
-        <div class="container">
-            <div class="row align-items-baseline justify-content-between">
-                <div class="col-12 col-md-8">
-                    <div class="copywrite-text">
-                        <p class="mb-20">
-                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This Site is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="#" target="_blank"><?=$generalinfo->Site_Name;?></a>
-                        </p>
-                    </div>
-                </div>
-                <div class="col-12 col-md-4">
-                    <div class="social-info">
-                         <a href="<?php echo base_url()?>index.php?adminController/logout" class="btn btn-primary mb-20 pull-right" target="_blank"><span class="fa fa-laptop"></span>Login</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="w3-agile-footer">
+    <div class="container">
+      <div class="agileits-w3layouts-copyright">
+        <p>© 2019 Bhutan Note Sheet . All Rights Reserved | Design by JNEC </p>
+      </div>
     </div>
-</footer>
-
-<script src="<?php echo base_url();?>/assest/website/js/jquery.min.js"></script>
-<script src="<?php echo base_url();?>/assest/website/js/popper.min.js"></script>
-<script src="<?php echo base_url();?>/assest/website/js/bootstrap.min.js"></script>
-<script src="<?php echo base_url();?>/assest/website/js/roberto.bundle.js"></script>
-<script src="<?php echo base_url();?>/assest/website/js/default-assets/active.js"></script>
+  </div>
 <script src="<?php echo base_url();?>assest/JqueryAjaxFormSubmit.js"></script>
 <script src="<?php echo base_url();?>assest/jquery.form.js"></script>
 <script src="<?php echo base_url();?>assest/jquery-blockUI.js"></script>
