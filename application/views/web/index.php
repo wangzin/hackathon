@@ -71,7 +71,7 @@
 			</div>
 			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 w3layouts_register_left page-header">
 				<p>Login</p>
-				<?php echo form_open('#' , array('class' => 'form-horizontal validatable', 'enctype' => 'multipart/form-data','id'=>'loginform'));?>
+				<?php echo form_open('?baseController/loginuser' , array('class' =>'form-horizontal','id' => 'loginform'));?>
 				<span id="EmailId_err" class="text-danger"></span>
 				<input name="EmailId" id="EmailId" onclick="removeerr('EmailId_err')" placeholder="Email Id" type="text" class="form-control"><br />
 				<span id="password_err" class="text-danger"></span>
@@ -147,23 +147,21 @@
 	}
 	function user_login(){
 		if(validateloginform()){
-			 $.blockUI
-	            ({ 
-	              css: 
-	              { 
-	                    border: 'none', 
-	                    padding: '15px', 
-	                    backgroundColor: '#000', 
-	                    '-webkit-border-radius': '10px', 
-	                    '-moz-border-radius': '10px', 
-	                    opacity: .5, 
-	                    color: '#fff' 
-	              } 
-	            });
-	          var url='<?php echo base_url();?>index.php?baseController/registerDetails/';
-	          var options = {target: '#mainpublicContent',url:url,type:'POST',data: $("#loginform").serialize()}; 
-	          $("#loginform").ajaxSubmit(options);
-	          setTimeout($.unblockUI, 600); 
+		 	$.blockUI
+	        ({ 
+	          css: 
+	          { 
+	                border: 'none', 
+	                padding: '15px', 
+	                backgroundColor: '#000', 
+	                '-webkit-border-radius': '10px', 
+	                '-moz-border-radius': '10px', 
+	                opacity: .5, 
+	                color: '#fff' 
+	          } 
+	        });
+	       $('#loginform').submit();
+	       
 		}
 	}
 	function validateloginform(){
