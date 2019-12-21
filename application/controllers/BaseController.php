@@ -28,4 +28,45 @@ class BaseController extends CI_Controller {
         $this->load->view('web/acknowledgement', $page_data); 
 
     }
+    function loginuser(){
+        if($this->input->post('EmailId')!="" &&  $this->input->post('password')!=""){
+            //password is not encripted
+            $query = $this->db->get_where('staff_tbl', array(
+            'Email_Id' => $this->input->post('EmailId'), 'Password' => $this->input->post('password')));
+            if ($query->num_rows() > 0){
+
+                $row = $query->row_array(); 
+                $this->session->set_userdata('Role_Id', $row['Role_Id']);
+                $this->session->set_userdata('Full_Name', $row['Full_Name']);
+                $this->session->set_userdata('Id', $row['Id']);
+                $this->session->set_userdata('Email_Id', $row['Email_Id']);
+                $this->session->set_userdata('Contact_No', $row['Contact_No']);
+                redirect(base_url() . 'index.php?baseController/dashboard', 'refresh');
+            } 
+            else{
+                $page_data['message']='Invalid email and password';
+                $this->load->view('web/acknowledgement', $page_data); 
+            }
+        } 
+        else{
+             $page_data['message']='Email and password is required';
+                $this->load->view('web/acknowledgement', $page_data); 
+        }
+
+    }
+    function dashboard(){
+        $page_data['message']="";
+        if ($this->session->userdata('Full_Name') == null ){
+            redirect(base_url(), 'refresh');
+        }
+        else{
+            $this->load->view('admin/dashboard', $page_data);
+        }
+    }
+    function logout($param=''){  
+        $this->session->unset_userdata(0);
+        $this->session->sess_destroy();
+        $this->session->set_flashdata('logout_notification', 'logged_out');
+        redirect(base_url().'index.php?baseController/', 'refresh');
+    }
 }
