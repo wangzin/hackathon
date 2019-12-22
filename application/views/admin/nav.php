@@ -2,7 +2,7 @@
   <section class="sidebar">
     <ul class="sidebar-menu" data-widget="tree">
       <li class="header">MAIN NAVIGATION</li>
-      <li class="active treeview" id="dashboardId">
+      <li class="active treeview" id="">
         <a href="<?php echo base_url();?>index.php?baseController/dashboard">
           <i class="fa fa-dashboard"></i> <span>Dashboard</span>
         </a>
@@ -33,7 +33,21 @@
 	        </a>
 	      </li>
 	     
-   		<?php }?>
+   		<?php } if($this->session->userdata('Role_Id')=="1" || $this->session->userdata('Role_Id')=="2"){ ?>
+   		<?php } if($this->session->userdata('Role_Id')!="2"){?>
+   		<li class="treeview" id="contact">
+	        <a href="#" onclick="loadpage('<?php echo base_url();?>index.php?adminController/loadPage/application/')">
+	          <i class="fa fa-chevron-circle-right"></i>
+	          <span>Application</span>
+	        </a>
+	      </li>
+      	<?php }?>
+      	<li class="treeview" id="contact">
+	        <a href="#" onclick="loadpage('<?php echo base_url();?>index.php?adminController/loadPage/search/')">
+	          <i class="fa fa-search"></i>
+	          <span>Search</span>
+	        </a>
+      	</li>
     </ul>
   </section>
 </aside>

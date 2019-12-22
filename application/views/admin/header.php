@@ -1,6 +1,6 @@
 
 <header class="main-header">
-    <a href="<?php echo base_url();?>index.php?adminController/dashboard" class="logo">
+    <a href="<?php echo base_url();?>index.php?baseController/dashboard" class="logo">
       <span class="logo-mini">L-lom</span>
       <span class="logo-lg"><b>Applicaiton Name</b></span>
     </a>
