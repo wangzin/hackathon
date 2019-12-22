@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class AdminController extends CI_Controller {
 	public function index(){
 	}
+    //redirect to inividual pages for master and other pages.
 	function loadPage($page=""){
 		$page_data['Registration_number'] =$this->CommonModel->getregNo();
 		$page_data['VerifierList'] =$this->CommonModel->getverifier();
@@ -15,6 +16,7 @@ class AdminController extends CI_Controller {
 		$this->load->view('admin/'.$page,$page_data);
 
 	}
+    //function to delete users
 	function deleteuser($iserId="",$page=""){
 		$this->db->where('Id', $iserId);
         $this->db->delete('staff_tbl');
@@ -22,6 +24,7 @@ class AdminController extends CI_Controller {
         $page_data['userList'] =$this->CommonModel->getusers();
 		$this->load->view('admin/'.$page,$page_data);
 	}
+    //function to update role for the user by admin
 	function Updaterole($page=""){
         $data['Role_Id']=$this->input->post('Company_Name');
         $this->db->where('Id',  $this->input->post('deleteId'));
@@ -30,6 +33,7 @@ class AdminController extends CI_Controller {
         $page_data['userList'] =$this->CommonModel->getusers();
 		$this->load->view('admin/'.$page,$page_data);
 	}
+    //company details will be updated
 	function Updatecompany($param1=""){
 		$data['Company_Name']=$this->input->post('companyName');
 		$data['Company_Shortname']=$this->input->post('companyshort');
@@ -39,6 +43,7 @@ class AdminController extends CI_Controller {
 		$this->load->view('admin/'.$param1,$page_data);
 	}
 
+    //will delete the company by admin
 	function deletecompany($companyId="",$page=""){
 		$this->db->where('Id', $companyId);
         $this->db->delete('company_tbl');
@@ -46,6 +51,7 @@ class AdminController extends CI_Controller {
   		$this->load->view('admin/'.$page,$page_data);
 	}
 
+    //function to add new company
 	function addcompany($page=""){
         $data['Company_Name']=$this->input->post('companyName');
         $data['Company_Shortname']=$this->input->post('companyshort');
@@ -53,7 +59,7 @@ class AdminController extends CI_Controller {
         $page_data['companyList'] = $this->db->get_where('company_tbl',array('Status'=>'Y'))->result_array();
 		$this->load->view('admin/'.$page,$page_data);
 	}
-	
+	//will update department details
 	function Updatedepartment($param2=""){
 		$data['Department']=$this->input->post('departmentName');
 		$data['Department_short']=$this->input->post('departmentshort');
@@ -63,6 +69,7 @@ class AdminController extends CI_Controller {
 		$this->load->view('admin/'.$param2,$page_data);
 	}
 
+    //will delete department
 	function deletedepartment($departmentId="",$page=""){
 		$this->db->where('Id', $departmentId);
         $this->db->delete('department_tbl');
@@ -70,6 +77,7 @@ class AdminController extends CI_Controller {
   		$this->load->view('admin/'.$page,$page_data);
 	}
 
+    //add new department by admin
 	function adddepartment($page=""){
         $data['Department']=$this->input->post('departmentName');
         $data['Department_short']=$this->input->post('departmentshort');
@@ -79,7 +87,7 @@ class AdminController extends CI_Controller {
 	}
 
 
-	
+	//udpate or edit designation
 	function Updatedesignation($param3=""){
 		$data['Designaiton']=$this->input->post('designationName');
         $this->db->where('Id',  $this->input->post('deleteId'));
@@ -88,6 +96,7 @@ class AdminController extends CI_Controller {
 		$this->load->view('admin/'.$param3,$page_data);
 	}
 
+    //delete selected designation
 	function deletedesignation($designationId="",$page=""){
 		$this->db->where('Id', $designationId);
         $this->db->delete('designation_tbl');
@@ -95,13 +104,14 @@ class AdminController extends CI_Controller {
   		$this->load->view('admin/'.$page,$page_data);
 	}
 
+    //will add new designation
 	function adddesignation($page=""){
         $data['Designaiton']=$this->input->post('designationName');
         $this->CommonModel->do_insert('designation_tbl', $data); 
         $page_data['designationList'] = $this->db->get_where('designation_tbl',array('Status'=>'Y'))->result_array();
 		$this->load->view('admin/'.$page,$page_data);
 	}
-
+    //function to submit and initiate application details
 	function submitApplcationDetails(){
 		$page_data['message']="";
         $page_data['messagefail']="";
@@ -130,11 +140,13 @@ class AdminController extends CI_Controller {
         $this->load->view('admin/acknowledgement', $page_data); 
          
 	}	
+    //open and claim applicaion to my task
 	function claimopenapp($type="",$appNo=""){
 		 $page_data['application_detail'] =$this->CommonModel->getApplicaionDetails($type,$this->input->post('AppNo'));
 		 $page_data['VerifierList'] =$this->CommonModel->getverifier();
 		$this->load->view('admin/verifyApplication',$page_data); 
 	}
+    //to release applcation back to group task
     function release(){
         $page_data['message']="";
         $page_data['messagefail']="";
@@ -148,6 +160,7 @@ class AdminController extends CI_Controller {
         
         $this->load->view('admin/acknowledgement', $page_data); 
     }
+    //update application details on action such as forward, reject and approve
     function updateApplicationDetails($param=""){
         $page_data['message']="";
         $page_data['messagefail']="";
@@ -199,7 +212,7 @@ class AdminController extends CI_Controller {
 
             $this->CommonModel->getApplicaionDetailsINFinalTbl($this->input->post('appNo'));
             if($this->db->affected_rows()>0){
-                $page_data['message']="You have Approved the application. Thank you for using our system ";
+                $page_data['message']="You have Approved the application. Email notification is send to the applicant and the applicant is requested to collect the applicaiton from the office.";
             }
             else{
                 $page_data['messagefail']='Not able to Approve. Please try again';
@@ -233,10 +246,20 @@ class AdminController extends CI_Controller {
         }
 
     }
-    function opentoresubmit(){
-        $page_data['application_detail'] =$this->CommonModel->getApplicaionDetails('rejected',$this->input->post('AppNo'));
-        $page_data['VerifierList'] =$this->CommonModel->getverifier();
-        $this->load->view('admin/resubmitApplication',$page_data); 
+    //get application detail for view 
+    function opentoresubmit($type){
+        
+        if($type=="resubmit"){
+            $page_data['application_detail'] =$this->CommonModel->getApplicaionDetails('rejected',$this->input->post('AppNo'));
+            $page_data['VerifierList'] =$this->CommonModel->getverifier();
+            $this->load->view('admin/resubmitApplication',$page_data); 
+        }
+        else{
+             $page_data['application_detail'] =$this->CommonModel->getApplicaionDetails('finalapproved',$this->input->post('AppNo'));
+            
+            $this->load->view('admin/viewApproveDetails',$page_data); 
+        }
+        
     }
     function searchDetails(){
        $page_data['result_list'] =$this->CommonModel->getappdetailsforreport($this->input->post('userid'));

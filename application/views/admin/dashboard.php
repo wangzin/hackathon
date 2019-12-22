@@ -78,7 +78,7 @@
 						        </div>
 						        <ul>
 						        	 <?php foreach($reject_Application_List as $i=> $event): ?>
-						        	 	<li> Your applicaiton (<a href="#" onclick="openapplicitonresubmit('<?php echo $event['Application_Number'];?>')"><?php echo $event['Application_Number'];?></a>) has rejected. Please click on applicaiton number to proceed further action</li>
+						        	 	<li> Your applicaiton (<a href="#" onclick="openapplicitonresubmit('<?php echo $event['Application_Number'];?>','resubmit')"><?php echo $event['Application_Number'];?></a>) has rejected. Please click on applicaiton number to proceed further action</li>
 					        	<?php endforeach; ?>
 						        </ul>
 						       
@@ -95,10 +95,9 @@
 						            	<ul class="timeline">
 								            <li class="time-label">
 							                  	<span class="bg-red">
-								                   Approval of Application 	
+								                   For Approval of Application 	
 							                  	</span>
 								            </li>
-							             	
 								            <li>
 								              <i class="fa fa-envelope-o bg-yellow"></i>
 								              <div class="timeline-item">
@@ -131,6 +130,23 @@
 								                </h3>
 								              </div>
 								            </li>
+						             	 	
+								        </ul>
+								        <ul class="timeline">
+								            <li class="time-label">
+							                  	<span class="bg-green">
+								                   Approved Application 	
+							                  	</span>
+								            </li>
+								            <?php foreach($MyApplication_List_Approve as $i=> $event): ?>
+								            	<div class="timeline-item">
+									                <h4 class="timeline-header no-border">
+									                	<ul>
+									                		<li> Your applicaiton (<a href="#" onclick="openapplicitonresubmit('<?php echo $event['Application_Number'];?>','approvedapplication')"><?php echo $event['Application_Number'];?></a>) has approved. Please click on applicaiton number to check details</li>
+									                	</ul>
+									                </h4>
+								              	</div>	
+								        	<?php endforeach; ?>
 								        </ul>
 						            </div>
 						            <div class="box-footer">
@@ -209,22 +225,22 @@
       	$("#groupId").ajaxSubmit(options);
 	    setTimeout($.unblockUI, 600);
 	}
-	function openapplicitonresubmit(appno){
+	function openapplicitonresubmit(appno,tye){
 		$('#AppNumber').val(appno);
 		$.blockUI
-	        ({ 
-	          css: 
-	          { 
-	                border: 'none', 
-	                padding: '15px', 
-	                backgroundColor: '#000', 
-	                '-webkit-border-radius': '10px', 
-	                '-moz-border-radius': '10px', 
-	                opacity: .5, 
-	                color: '#fff' 
-	          } 
-	        });
-      	var url='<?php echo base_url();?>index.php?adminController/opentoresubmit/'+appno;
+        ({ 
+          css: 
+          { 
+                border: 'none', 
+                padding: '15px', 
+                backgroundColor: '#000', 
+                '-webkit-border-radius': '10px', 
+                '-moz-border-radius': '10px', 
+                opacity: .5, 
+                color: '#fff' 
+          } 
+        });
+      	var url='<?php echo base_url();?>index.php?adminController/opentoresubmit/'+tye;
        	var options = {target: '#mainContentdiv',url:url,type:'POST',data: $("#groupId").serialize()}; 
       	$("#groupId").ajaxSubmit(options);
 	    setTimeout($.unblockUI, 600);

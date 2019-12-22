@@ -50,9 +50,12 @@ class CommonModel extends CI_Model{
         }
         else if($type=="my"){
              $query =$this->db->query("SELECT s.`Full_Name`,d.`Designaiton`,ap.`Application_Number`,ap.`Message`,ap.`Subject`,ap.`Application_Date` FROM `application_assign_tbl` a LEFT JOIN `application_tbl` ap ON a.`Application_Number`=ap.`Application_Number` LEFT JOIN `staff_tbl` s ON s.`Id`=ap.`Submitted_Id` LEFT JOIN `designation_tbl` d ON d.`Id`=s.`Designation_Id` WHERE ap.`Status_Id` =4 AND a.`User_Id` IN ('".$this->session->userdata('Id')."')")->result_array();
-         }
+        }
+        else if($type=="myApproved"){
+             $query =$this->db->query("SELECT s.`Full_Name`,d.`Designaiton`,ap.`Application_Number`,ap.`Message`,ap.`Subject`,ap.`Application_Date` FROM `application_assign_tbl` a LEFT JOIN `application_tbl` ap ON a.`Application_Number`=ap.`Application_Number` LEFT JOIN `staff_tbl` s ON s.`Id`=ap.`Submitted_Id` LEFT JOIN `designation_tbl` d ON d.`Id`=s.`Designation_Id` WHERE ap.`Status_Id` =6 AND ap.`Submitted_Id` IN ('".$this->session->userdata('Id')."')")->result_array();
+        }
         else{
-            $query =$this->db->query("SELECT s.`Full_Name`,d.`Designaiton`,ap.`Application_Number`,ap.`Message`,ap.`Subject`,ap.`Application_Date` FROM `application_assign_tbl` a LEFT JOIN `application_tbl` ap ON a.`Application_Number`=ap.`Application_Number` LEFT JOIN `staff_tbl` s ON s.`Id`=ap.`Submitted_Id` LEFT JOIN `designation_tbl` d ON d.`Id`=s.`Designation_Id` WHERE ap.`Status_Id` =5 AND ap.`Submitted_Id` IN ('".$this->session->userdata('Id')."')")->result_array();
+            $query =$this->db->query("SELECT s.`Full_Name`,d.`Designaiton`,ap.`Application_Number`,ap.`Message`,ap.`Subject`,ap.`Application_Date` FROM `application_assign_tbl` a LEFT JOIN `application_tbl` ap ON a.`Application_Number`=ap.`Application_Number` LEFT JOIN `staff_tbl` s ON s.`Id`=ap.`Submitted_Id` LEFT JOIN `designation_tbl` d ON d.`Id`=s.`Designation_Id` WHERE ap.`Status_Id` =5 AND ap.`Submitted_Id` IN ('".$this->session->userdata('Id')."') GROUP BY ap.`Application_Number` ")->result_array();
         }
         return $query;
         
@@ -70,9 +73,12 @@ class CommonModel extends CI_Model{
             $this->db->update('application_assign_tbl', $data1);
         }
         if($type=="rejected"){
-            $query =$this->db->query("SELECT a.`Subject`,a.`Application_Number`,a.`Application_Date`,a.`Message`,s.`Full_Name`,s.`Email_Id`,s.`Designation_Id`,ass.`Remarks`,ass.`Action_Date`,ass.`User_Id` FROM `application_tbl` a LEFT JOIN `application_assign_tbl` ap ON ap.`Application_Number`=a.`Application_Number` LEFT JOIN staff_tbl s ON s.`Id`=a.`Submitted_Id` LEFT JOIN `application_assign_tbl` ass ON ass.`User_Id`=a.`Last_Action_By` WHERE a.`Application_Number`='".$appNo."' AND a.`Status_Id`=5 AND ass.`Remarks` IS NOT NULL GROUP BY ass.`User_Id` ")->row();
+            $query =$this->db->query("SELECT a.`Subject`,a.`Application_Number`,a.`Application_Date`,a.`Message`,s.`Full_Name`,s.`Email_Id`,s.`Designation_Id`,ass.`Remarks`,ass.`Action_Date`,ass.`User_Id` User_IdTochagsfa FROM `application_tbl` a LEFT JOIN `application_assign_tbl` ap ON ap.`Application_Number`=a.`Application_Number` LEFT JOIN staff_tbl s ON s.`Id`=a.`Submitted_Id` LEFT JOIN `application_assign_tbl` ass ON ass.`User_Id`=a.`Last_Action_By` WHERE a.`Application_Number`='".$appNo."' AND a.`Status_Id`=5 AND ass.`Remarks` IS NOT NULL GROUP BY ass.`User_Id` ")->row();
         }
-         if($type=="finalReport"){
+        else if($type=="finalapproved"){
+           $query =$this->db->query("SELECT a.Id,a.`Subject`,a.`Application_Number`,a.`Application_Date`,a.`Message`,s.`Full_Name`,s.`Email_Id`,s.`Designation_Id`,ass.`Remarks`,ass.`Action_Date`,ass.`User_Id` User_IdTochagsfa FROM `application_tbl` a LEFT JOIN `application_assign_tbl` ap ON ap.`Application_Number`=a.`Application_Number` LEFT JOIN staff_tbl s ON s.`Id`=a.`Submitted_Id` LEFT JOIN `application_assign_tbl` ass ON ass.`User_Id`=a.`Last_Action_By` WHERE a.`Application_Number`='".$appNo."' AND a.`Status_Id`=6 AND ass.`Remarks` IS NOT NULL GROUP BY ass.`User_Id` ")->row();
+        }
+        else if($type=="finalReport"){
             $query =$this->db->query("SELECT a.`Subject`,a.`Application_Number`,a.`Application_Date`,a.`Message`,s.`Full_Name`,s.`Email_Id`,s.`Designation_Id`,d.`Designaiton` FROM `approved_application_tbl` a LEFT JOIN staff_tbl s ON s.`Id`=a.`Submitted_Id` LEFT JOIN `designation_tbl` d ON d.`Id`=s.`Designation_Id` WHERE a.`Id`='".$appNo."' ")->row();
         }
         else{

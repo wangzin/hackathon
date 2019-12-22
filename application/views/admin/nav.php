@@ -32,8 +32,20 @@
 	          <span>Update Designation</span>
 	        </a>
 	      </li>
+	      <li class="treeview" id="contact">
+	        <a href="#" onclick="loadpage('<?php echo base_url();?>index.php?adminController/loadPage/search/')">
+	          <i class="fa fa-search"></i>
+	          <span>Search</span>
+	        </a>
+      	</li>
 	     
-   		<?php } if($this->session->userdata('Role_Id')=="1" || $this->session->userdata('Role_Id')=="2"){ ?>
+   		<?php } if($this->session->userdata('Role_Id')=="2"){ ?>
+   			<li class="treeview" id="contact">
+	        <a href="#" onclick="loadpage('<?php echo base_url();?>index.php?adminController/loadPage/search/')">
+	          <i class="fa fa-search"></i>
+	          <span>Search</span>
+	        </a>
+      	</li>
    		<?php } if($this->session->userdata('Role_Id')!="2"){?>
    		<li class="treeview" id="contact">
 	        <a href="#" onclick="loadpage('<?php echo base_url();?>index.php?adminController/loadPage/application/')">
@@ -41,13 +53,9 @@
 	          <span>Application</span>
 	        </a>
 	      </li>
+
       	<?php }?>
-      	<li class="treeview" id="contact">
-	        <a href="#" onclick="loadpage('<?php echo base_url();?>index.php?adminController/loadPage/search/')">
-	          <i class="fa fa-search"></i>
-	          <span>Search</span>
-	        </a>
-      	</li>
+      	
     </ul>
   </section>
 </aside>

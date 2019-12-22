@@ -69,6 +69,7 @@ class BaseController extends CI_Controller {
             $page_data['Application_List'] =$this->CommonModel->getAllApplicationSubmitted('group');
             $page_data['MyApplication_List'] =$this->CommonModel->getAllApplicationSubmitted('my');
             $page_data['reject_Application_List'] =$this->CommonModel->getAllApplicationSubmitted('rejected');
+            $page_data['MyApplication_List_Approve'] =$this->CommonModel->getAllApplicationSubmitted('myApproved');
             $this->load->view('admin/dashboard', $page_data);
         }
     }
