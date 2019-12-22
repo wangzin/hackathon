@@ -1,6 +1,7 @@
 <head>        
     <title> Applicaiton</title>            
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="<?php echo base_url();?>uploads/logo.png" type="image/x-icon" />
 	 	<link rel="stylesheet" href="<?php echo base_url();?>assest/admin/bower_components/bootstrap/dist/css/bootstrap.min.css">
   	<!-- Font Awesome -->
   	<link rel="stylesheet" href="<?php echo base_url();?>assest/admin/bower_components/font-awesome/css/font-awesome.min.css">

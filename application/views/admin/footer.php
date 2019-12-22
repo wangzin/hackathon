@@ -40,6 +40,10 @@
 <script src="<?php echo base_url();?>assest/admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
 
 <script src="<?php echo base_url();?>assest/JqueryAjaxFormSubmit.js"></script>
+<script src="<?php echo base_url();?>assest/jspdf.min.js"></script>
+<script src="<?php echo base_url();?>assest/html2canvas.min.js"></script>
+
+
 <script src="<?php echo base_url();?>assest/jquery.form.js"></script>
 <script src="<?php echo base_url();?>assest/jquery-blockUI.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>assest/summernote/summernote-lite.js"></script>

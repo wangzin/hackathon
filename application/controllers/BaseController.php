@@ -42,6 +42,8 @@ class BaseController extends CI_Controller {
                 $row = $query->row_array(); 
                 $this->session->set_userdata('Role_Id', $row['Role_Id']);
                 $this->session->set_userdata('Full_Name', $row['Full_Name']);
+                $this->session->set_userdata('companyId', $row['Company_Id']);
+                $this->session->set_userdata('DesignationId', $row['Designation_Id']);
                 $this->session->set_userdata('Id', $row['Id']);
                 $this->session->set_userdata('Email_Id', $row['Email_Id']);
                 $this->session->set_userdata('Contact_No', $row['Contact_No']);
@@ -64,6 +66,9 @@ class BaseController extends CI_Controller {
             redirect(base_url(), 'refresh');
         }
         else{
+            $page_data['Application_List'] =$this->CommonModel->getAllApplicationSubmitted('group');
+            $page_data['MyApplication_List'] =$this->CommonModel->getAllApplicationSubmitted('my');
+            $page_data['reject_Application_List'] =$this->CommonModel->getAllApplicationSubmitted('rejected');
             $this->load->view('admin/dashboard', $page_data);
         }
     }
