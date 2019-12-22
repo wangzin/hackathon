@@ -10,6 +10,7 @@
      	
     	<div class="register">
 		<div class="container">
+			
 			<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 w3layouts_register_right page-header">
 				<?php echo form_open('#' , array('class' => 'form-horizontal validatable', 'enctype' => 'multipart/form-data','id'=>'registrationform'));?>
 					<span class="text-center"><h2> Get Registered</h2></span>
@@ -24,7 +25,7 @@
 							<input name="contact" id="contact" onclick="removeerr('contact_err')" placeholder="Mobile Phone No" class="pager form-control" type="number">
 							<span id="contact_err" class="text-justify"></span>
 							
-							<input name="text" placeholder="Password" id="Password" onclick="removeerr('Password_err')" class="pager form-control" type="text">
+							<input name="text" type="password" placeholder="Password" id="Password" onclick="removeerr('Password_err')" class="pager form-control" type="text">
 							<span id="Password_err" class="text-justify"></span>
 						</div>
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -80,8 +81,32 @@
 				</form>
 			</div>
 			<div class="clearfix"> </div>
+			<div class="col-md-8 w3layouts_register_right page-header">
+				<h2  class="text-primary" style="text-align: center;">AIMS</h2>
+				<h3 class="text-danger" style="text-align: center;">
+					The application aims to create collaboration management system, able to apply application and get
+					approval at fastest way.
+				</h3>
+			</div>
+			<div class="col-md-8 w3layouts_register_right page-header">
+				<h2  class="text-primary" style="text-align: center;">OBJECTIVES</h2>
+				<h3 class="text-danger" style="text-align: center;">
+					Reduce Time constraints<br>
+					Reduce work load<br>
+					Enable employee to apply online for clarity communication.<br>
+					For effective and efficient process
+				</h3>
+			</div>
+			<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+				
+			<h3  class="text-primary" style="text-align: center;">
+				The application <b>'Organization Approval System'</b> is especially designed to be used by the any organization or company.
+			</h3>
+			<br>
+		</div>
 		</div>
 	</div>
+
     </div>
 	<?php
 	    $this->load->view('web/footer.php');

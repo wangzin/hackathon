@@ -19,26 +19,40 @@
 						            	<ul class="timeline">
 								            <li class="time-label">
 							                  	<span class="bg-red">
-								                   Approval of Note sheet for company 	
+								                   Approval of Application 	
 							                  	</span>
 								            </li>
 							             	
 								            <li>
 								              <i class="fa fa-envelope-o bg-yellow"></i>
 								              <div class="timeline-item">
-								                <h3 class="timeline-header no-border">You will recieve messages, booking and other details. To check, you need to click on message icon near profile menu at top</h3>
+								                <h3 class="timeline-header no-border">
+								                	<ul>
+								                		<li>Approval seeker have to apply application and it will be send to reviewers and approver.</li>
+								                	</ul>
+								                </h3>
 								              </div>
 								            </li>
 								            <li>
 								              <i class="fa fa-laptop bg-blue"></i>
 								              <div class="timeline-item">
-								                <h3 class="timeline-header no-border">Change your site name, logo, logo initial, and contact detaials from <b>Contacts and others</b> link</h3>
+								                <h3 class="timeline-header no-border">
+								                	<ul>
+								                		<li>Reviewer will check the application and give comments if needed to applicant.</li>
+								                		<li>If application is accepted then it is forwarded for futher review or directly to approver.</li>
+								                		<li> Approver will view the application and accept or reject with comments.</li>
+								                	</ul>
+								                </h3>
 								              </div>
 								            </li>
 								            <li>
 								              <i class="fa fa-navicon bg-success"></i>
 								              <div class="timeline-item">
-								                <h3 class="timeline-header no-border">You can add, edit and delete menus and submenus. To do that, please click on  <b>Menus and Sub menus</b> link</h3>
+								                <h3 class="timeline-header no-border">
+								                	<ul>
+								                		<li>If Accepted by the approver then PDF can be generated.</li>
+								                	</ul>
+								                </h3>
 								              </div>
 								            </li>
 								            
